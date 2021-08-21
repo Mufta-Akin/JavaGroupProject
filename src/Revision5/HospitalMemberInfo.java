@@ -1,4 +1,4 @@
-package Revision6;
+package Revision7G;
 import java.util.Scanner;
 /**
  * Created by ${Paul McGinley and group} on ${01/11/2020}
@@ -22,20 +22,6 @@ public class HospitalMemberInfo
    static int appointmentYear;
 
    static Scanner keyboard = new Scanner(System.in);
-
-   public HospitalMemberInfo()
-   {
-
-   }
-
-   public HospitalMemberInfo(String docName, int docAge, String docGender)
-   {
-   }
-
-   public HospitalMemberInfo(String docName, int docAge)
-   {
-
-   }
 
 
    public static int readInteger()
@@ -84,8 +70,6 @@ public class HospitalMemberInfo
             name = readText();
             firstPatient.setName(name);
 
-
-
             System.out.print("Please enter your address: ");
             address = readText();
             firstPatient.setAddress(address);
@@ -120,11 +104,7 @@ public class HospitalMemberInfo
          }
          else if (userInput == TWO)
                {
-                  String docName = new String();
-                  String docAddress = new String();
-                  int docAge = 0;
-                  String docGender = new String();
-                  Doctors firstDoctor = new Doctors(docName, docAddress, docAge, docGender);
+                  Doctors firstDoctor = new Doctors();
 
                   System.out.println(firstDoctor.getStatus());
 
@@ -231,44 +211,4 @@ public class HospitalMemberInfo
       {
 
    }//main
-
-   public void setName(String name)
-   {
-      this.name = name;
-   }
-
-   public String getName()
-   {
-      return name;
-   }
-
-   public void setAddress(String address)
-   {
-      this.address = address;
-   }
-
-   public String getAddress()
-   {
-      return address;
-   }
-
-   public void setGender(String gender)
-   {
-      this.gender = gender;
-   }
-
-   public String getGender()
-   {
-      return gender;
-   }
-
-   public void setAge(int age)
-   {
-      this.age = age;
-   }
-
-   public int getAge()
-   {
-      return age;
-   }
 }//class

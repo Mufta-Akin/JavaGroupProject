@@ -1,4 +1,4 @@
-package Revision6;
+package Revision7G;
 
 /**
  * Created by UGIAGBE JOSEPH on 11/26/2020
@@ -7,16 +7,11 @@ package Revision6;
 public class TestHospitalMember extends HospitalMemberInfo
 {
 
-   public TestHospitalMember(String docName, String docAddress, int docAge, String docGender)
-   {
-      super();
-   }
-
    public static void main(String[] args)
    {
       getHospitalMemberInfo();
 
-
+/**
       Doctors aDoctor = new Doctors();
 
       Doctors bDoctor = new Doctors("Bob William", 34, "male", 102, 2010);
@@ -117,7 +112,9 @@ public class TestHospitalMember extends HospitalMemberInfo
       aPatient.getDiscount(99);
       cPatient.getDiscount(23);
       dPatient.getDiscount(99);
+**/
 
+      DoctorsArray doctorsGroup = new DoctorsArray("SAVAN", 3);
 
    }//main
 }//class
