@@ -1,4 +1,4 @@
-package Revision5G;
+package Revision6;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
@@ -7,17 +7,8 @@ import java.util.Scanner;
  * Created by UGIAGBE JOSEPH on 11/25/2020
  * PROGRAM EXTENDS FROM HOSPITAL MEMBERS
  **/
-public class Doctors extends HospitalMember
+public class Doctors extends HospitalMemberInfo
 {
-   private static String docGender;
-   private static String docAddress;
-   private static int docAge;
-   private static String docName;
-   private static String docID;
-   private static String docSpecialty;
-   private static int docHierarchy;
-   private static int docNoOfCourse;
-   private static int docYear;
    Scanner keyboard = new Scanner(System.in);
    DecimalFormat df = new DecimalFormat("0,000.00");
 
@@ -34,8 +25,15 @@ public class Doctors extends HospitalMember
    private int noOfCourse;
    private int yearOfAppointment;
 
-   public Doctors(){
-      super(docName, docAddress, docAge, docGender);
+   public Doctors(String docName, String docAddress, int docAge, String docGender)
+   {
+      super();
+      // super(docName, docAddress, docAge, docGender);
+      noOfDoctors++;
+   }
+
+   protected Doctors(String docName, String docAddress, int docAge, String docGender, String docID, String docSpecialty, int docHierarchy, int docNoOfCourse, int docYear){
+      super();
       employmentID = docID;
       specialty = docSpecialty;
       hierarchyCode = docHierarchy;
@@ -44,7 +42,7 @@ public class Doctors extends HospitalMember
       noOfDoctors++;
 
    }
-   public Doctors(String docName, int docAge, String docID, String docSpecialty, int docHierarchy, int docYear){
+   public Doctors(String docName, int docAge, String docID, String docSpecialty, int docHierarchy,int docYear){
       super(docName, docAge);
       employmentID = docID;
       specialty = docSpecialty;
@@ -62,6 +60,12 @@ public class Doctors extends HospitalMember
       noOfCourse = 0;
       noOfDoctors++;
    }
+
+   public Doctors()
+   {
+
+   }
+
    protected void setEmploymentID(String docID){
       employmentID = docID;
    }
