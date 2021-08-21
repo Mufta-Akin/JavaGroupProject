@@ -1,4 +1,4 @@
-package Revision7G;
+package Revision8;
 import java.util.Scanner;
 /**
  * Created by ${Paul McGinley and group} on ${01/11/2020}
@@ -48,9 +48,9 @@ public class HospitalMemberInfo
       System.out.println();
       do
       {
-         System.out.println("Press 1 if you are a Patient: ");
-         System.out.println("Press 2 if you are a Doctor: ");
-         System.out.println("Press 3 if you are Nurse: ");
+         System.out.println("Press 1 for a Patient: ");
+         System.out.println("Press 2 for a Doctor: ");
+         System.out.println("Press 3 for a Nurse: ");
          System.out.println("Press 4 if finished to EXIT: ");
          userInput = keyboard.nextInt();
 
@@ -61,29 +61,29 @@ public class HospitalMemberInfo
 
             System.out.println(firstPatient.getStatus());
 
-            System.out.print("What is your patient ID: ");
+            System.out.print("What is the patient ID: ");
             patientID = readText();
             firstPatient.setPatientID(patientID);
             keyboard.nextLine();
 
-            System.out.print("Please enter your full name: ");
+            System.out.print("Please enter full name: ");
             name = readText();
             firstPatient.setName(name);
 
-            System.out.print("Please enter your address: ");
+            System.out.print("Please enter address: ");
             address = readText();
             firstPatient.setAddress(address);
 
-            System.out.print("Please enter your age: ");
+            System.out.print("Please enter age: ");
             age = readInteger();
             firstPatient.setAge(age);
 
-            System.out.print("What gender are you: ");
+            System.out.print("Please enter gender : ");
             gender = readText();
             firstPatient.setGender(gender);
             keyboard.nextLine();
 
-            System.out.print("Please enter the number of treatments you require: ");
+            System.out.print("Please enter the number of treatments required: ");
             numberOfTreatments = readInteger();
             firstPatient.setNoOfTreatment(numberOfTreatments);
 
@@ -108,76 +108,77 @@ public class HospitalMemberInfo
 
                   System.out.println(firstDoctor.getStatus());
 
-                  System.out.print("What is your employment ID: ");
+                  System.out.print("Enter employment ID: ");
                   employmentID = readText();
                   firstDoctor.setEmploymentID(employmentID);
                   keyboard.nextLine();
 
-                  System.out.print("Please enter your full name: ");
+                  System.out.print("Please enter full name: ");
                   name = readText();
                   firstDoctor.setName(name);
 
-                  System.out.print("Please enter your address: ");
+                  System.out.print("Please enter address: ");
                   address = readText();
                   firstDoctor.setAddress(address);
 
-                  System.out.print("Please enter your age: ");
+                  System.out.print("Please enter age: ");
                   age = readInteger();
                   firstDoctor.setAge(age);
 
-                  System.out.print("What gender are you: ");
+                  System.out.print("Please enter gender: ");
                   gender = readText();
                   firstDoctor.setGender(gender);
                   keyboard.nextLine();
 
-                  System.out.print("What is your speciality: ");
+                  System.out.print("Enter area of speciality: ");
                   speciality = readText();
                   firstDoctor.setSpecialty(speciality);
 
-                  System.out.print("Hierarchy code: ");
+                  System.out.print("Enter Hierarchy code: ");
                   hierarchyCode = readInteger();
                   firstDoctor.setHierarchyCode(hierarchyCode);
 
-                  System.out.print("What is your year of appointment: ");
+                  System.out.print("Enter year of appointment: ");
                   yearOfEmployment = readInteger();
                   firstDoctor.setYearOfAppointment(yearOfEmployment);
 
-                  System.out.print("Number coursed completed: ");
+                  System.out.print("Number courses completed: ");
                   noOfCourses = readInteger();
                   firstDoctor.setNoOfCourse(noOfCourses);
 
                   System.out.println(firstDoctor);
                   System.out.println();
                }
+
                else if (userInput == THREE)
                      {
                         Nurses firstNurse = new Nurses();
 
                         System.out.println(firstNurse.getStatus());
 
-                        System.out.print("What is your employment ID: ");
+                        System.out.print("Enter employment ID: ");
                         employmentID = readText();
                         firstNurse.setEmploymentID(employmentID);
                         keyboard.nextLine();
 
-                        System.out.print("Please enter your full name: ");
+                        System.out.print("Enter full name: ");
                         name = readText();
                         firstNurse.setName(name);
 
-                        System.out.print("Please enter your address: ");
+                        System.out.print("Please enter address: ");
                         address = readText();
                         firstNurse.setAddress(address);
 
-                        System.out.print("Please enter your age: ");
+                        System.out.print("Please enter age: ");
                         age = readInteger();
                         firstNurse.setAge(age);
 
-                        System.out.print("What gender are you: ");
+                        System.out.print("Enter gender : ");
                         gender = readText();
                         firstNurse.setGender(gender);
                         keyboard.nextLine();
 
-                        System.out.print("What is your speciality: ");
+                        System.out.print("Enter area of speciality: ");
                         speciality = readText();
                         firstNurse.setSpecialty(speciality);
 
@@ -185,7 +186,7 @@ public class HospitalMemberInfo
                         hierarchyCode = readInteger();
                         firstNurse.setHierarchy(hierarchyCode);
 
-                        System.out.print("Number coursed completed: ");
+                        System.out.print("Number courses completed: ");
                         noOfCourses = readInteger();
                         firstNurse.setNoOfCourse(noOfCourses);
 
@@ -207,8 +208,5 @@ public class HospitalMemberInfo
       }
    }
 
-   public static void main(String[] args)
-      {
 
-   }//main
 }//class

@@ -1,4 +1,4 @@
-package Revision7G;
+package Revision8;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
@@ -9,15 +9,6 @@ import java.util.Scanner;
  **/
 public class Doctors extends HospitalMember
 {
-   private static String docGender;
-   private static String docAddress;
-   private static int docAge;
-   private static String docName;
-   private static String docID;
-   private static String docSpecialty;
-   private static int docHierarchy;
-   private static int docNoOfCourse;
-   private static int docYear;
    Scanner keyboard = new Scanner(System.in);
    DecimalFormat df = new DecimalFormat("0,000.00");
 
@@ -35,12 +26,7 @@ public class Doctors extends HospitalMember
    private int yearOfAppointment;
 
    public Doctors(){
-      super(docName, docAddress, docAge, docGender);
-      employmentID = docID;
-      specialty = docSpecialty;
-      hierarchyCode = docHierarchy;
-      noOfCourse = docNoOfCourse;
-      yearOfAppointment = docYear;
+
       noOfDoctors++;
 
    }
@@ -159,7 +145,6 @@ public class Doctors extends HospitalMember
 
       return numberOfDaysInMonth;
    }
-
    private double calSalary(){
       final int ZERO = 0;
       final int ONE = 1;
@@ -167,45 +152,55 @@ public class Doctors extends HospitalMember
       final int THREE = 3;
       final int FOUR = 4;
       final int FIVE = 5;
+      final double RATE1 = 195.50;
+      final double RATE2 = 245.50;
+      final double RATE3 = 298.20;
+      final double RATE4 = 345.80;
+      final double RATE5 = 399.20;
+      final double RATE6 = 1.50;
+      final double RATE7 = 1.90;
+      final double RATE8 = 2.30;
+      final double RATE9 = 2.70;
+      final double RATE10 = 3.10;
       double salaryRate, courseRate;
       if (hierarchyCode == ONEHUNDREDONE ){
-         salaryRate = 195.50;
+         salaryRate = RATE1;
       }
       else if (hierarchyCode == ONEHUNDREDTWO){
-               salaryRate = 245.50;
+               salaryRate = RATE2;
             }
             else if (hierarchyCode == ONEHUNDREDTHREE){
-                     salaryRate = 298.20;
+                     salaryRate = RATE3;
                   }
                   else if (hierarchyCode == ONEHUNDREDFOUR){
-                           salaryRate = 345.80;
+                           salaryRate = RATE4;
                         }
                         else if (hierarchyCode == ONEHUNDREDFIVE){
-                                 salaryRate = 399.20;
+                                 salaryRate = RATE5;
                               }
                               else {
-                                    salaryRate = 0;
+                                    salaryRate = ZERO;
                               }
       if (noOfCourse == ZERO){
-         courseRate = 1;
+         courseRate = ONE;
       }
       else if (noOfCourse == ONE){
-               courseRate = 1.5;
+               courseRate = RATE6;
             }
             else if (noOfCourse == TWO){
-                     courseRate = 1.9;
+                     courseRate = RATE7;
                   }
                   else if (noOfCourse == THREE){
-                           courseRate = 2.3;
+                           courseRate = RATE8;
                         }
                         else if (noOfCourse == FOUR){
-                                 courseRate = 2.7;
+                                 courseRate = RATE9;
                               }
                               else if (noOfCourse == FIVE){
-                                       courseRate = 3.1;
+                                       courseRate = RATE10;
                                     }
                                     else {
-                                          courseRate = 0;
+                                          courseRate = ZERO;
                                     }
       return salaryRate * courseRate * getNumberOfDays();
    }
@@ -229,7 +224,7 @@ public class Doctors extends HospitalMember
       double carMaintenance;
       if (found){
          carMaintenance = calSalary() * MAINTENANCEBONUS;
-         System.out.println("\nThe Doctor " + employmentID + " car maintenance fee is £" + df.format(carMaintenance));
+         System.out.println("\nThe Doctor " + employmentID + " car maintenance allowance is £" + df.format(carMaintenance));
       }
       else{
          System.out.println("\nThe Doctor " + employmentID + " do not have a car");

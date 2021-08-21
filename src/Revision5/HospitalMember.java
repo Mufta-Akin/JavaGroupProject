@@ -1,4 +1,4 @@
-package Revision7G;
+package Revision8;
 
 /**
  * Created by UGIAGBE JOSEPH on 11/25/2020
@@ -18,19 +18,19 @@ abstract public class HospitalMember
       address = memAddress;
       age = memAge;
       gender = memGender;
-   }
+   }//user defined constructor
    public HospitalMember(String memName, int memAge){
       name = memName;
       age = memAge;
       address = "Unknown";
       gender = "Unknown";
-   }
+   }//user defined constructor
    public HospitalMember(String memName, int memAge, String memGender){
       name = memName;
       age = memAge;
       gender = memGender;
       address = "Unknown";
-   }
+   }//user defined constructor
    protected void setName(String memName){
       name = memName;
    }

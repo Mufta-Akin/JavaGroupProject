@@ -1,4 +1,4 @@
-package Revision7G;
+package Revision8;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
@@ -141,72 +141,93 @@ public class Nurses extends HospitalMember
    }
 
    private double calAnnualSalary(){
+      double annualSalary;
       final int ZERO = 0;
       final int ONE = 1;
       final int TWO = 2;
       final int THREE = 3;
       final int FOUR = 4;
       final int FIVE = 5;
+      final double RATE1 = 175.50;
+      final double RATE2 = 225.50;
+      final double RATE3 = 278.20;
+      final double RATE4 = 325.80;
+      final double RATE5 = 379.20;
+      final double RATE6 = 1.30;
+      final double RATE7 = 1.80;
+      final double RATE8 = 2.30;
+      final double RATE9 = 2.80;
+      final double RATE10 = 3.30;
+      final int MONTHINYEAR = 12;
+
 
       double salaryRate, courseRate;
       int monthsInYear = 12;
       if (hierarchyCode == TWOHUNDREDONE){
-         salaryRate = 175.50;
+         salaryRate = RATE1;
       }
       else if (hierarchyCode == TWOHUNDREDTWO){
-               salaryRate = 225.50;
+               salaryRate = RATE2;
             }
             else if (hierarchyCode == TWOHUNDREDTHREE){
-                     salaryRate = 278.20;
+                     salaryRate = RATE3;
                   }
                   else if (hierarchyCode == TWOHUNDREDFOUR){
-                           salaryRate = 325.80;
+                           salaryRate = RATE4;
                         }
                         else if (hierarchyCode == TWOHUNDREDFIVE){
-                                 salaryRate = 379.20;
+                                 salaryRate = RATE5;
                               }
                               else {
-                                    salaryRate = 0;
+                                    salaryRate = ZERO;
                               }
       if (noOfCourse == ZERO){
-         courseRate = 1;
+         courseRate = ONE;
       }
       else if (noOfCourse == ONE){
-               courseRate = 1.3;
+               courseRate = RATE6;
             }
             else if (noOfCourse == TWO){
-                     courseRate = 1.8;
+                     courseRate = RATE7;
                   }
                   else if (noOfCourse == THREE){
-                           courseRate = 2.3;
+                           courseRate = RATE8;
                         }
                         else if (noOfCourse == FOUR){
-                                 courseRate = 2.8;
+                                 courseRate = RATE9;
                               }
                               else if (noOfCourse == FIVE){
-                                       courseRate = 3.3;
+                                       courseRate = RATE10;
                                     }
                                     else {
-                                          courseRate = 0;
+                                          courseRate = ZERO;
                                           }
-      return  (salaryRate * courseRate * getNumberOfDays()) * monthsInYear;
+      annualSalary =(salaryRate * courseRate * getNumberOfDays()) * MONTHINYEAR;
+      return  annualSalary;
+
    }
    protected void calAnnualLeave(){
-      int annualLeave, leaveInMonth, monthInYear = 12;
+      int annualLeave, leaveInMonth;
+      //final int MONTHINYEAR = 12;
+      final int SEVEN =7;
+      final int EIGHT = 8;
+      final  int NINE = 9;
+      final  int TEN = 10;
+      final int THIRTEEN = 13;
       if (hierarchyCode == TWOHUNDREDONE){
-         leaveInMonth = 7;
+         leaveInMonth = SEVEN;
       }
       else if (hierarchyCode == TWOHUNDREDTWO){
-               leaveInMonth = 8;
+               leaveInMonth = EIGHT;
             }
       else if (hierarchyCode == TWOHUNDREDTHREE){
-               leaveInMonth = 9;
+               leaveInMonth = NINE;
             }
             else if (hierarchyCode == TWOHUNDREDFOUR){
-                     leaveInMonth = 10;
+                     leaveInMonth = TEN;
                   }
                   else if (hierarchyCode == TWOHUNDREDFIVE){
-                           leaveInMonth = 13;
+                           leaveInMonth = THIRTEEN;
                         }
                         else {
                            leaveInMonth = 0;

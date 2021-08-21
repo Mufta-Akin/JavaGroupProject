@@ -1,4 +1,4 @@
-package Revision7G;
+package Revision8;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
