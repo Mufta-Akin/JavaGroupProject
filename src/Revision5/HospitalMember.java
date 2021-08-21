@@ -1,96 +1,62 @@
-package Revision9;
-
+package Revision10;
 
 /**
  * Created by UGIAGBE JOSEPH on 11/25/2020
  * PROGRAM TO MANAGE HOSPITAL MEMBERS
  **/
 abstract public class HospitalMember
-{
+{  //defined super class instant variables
    private String name;
    private String address;
    private int age;
    private String sex;
 
-   public HospitalMember()
-   {
-      //default constructior
-   }
+   protected HospitalMember(){
+   }//default constructor
 
-   public HospitalMember(String memName, String memAddress, int memAge, String memSex)
-   {
+   protected HospitalMember(String memName, String memAddress, int memAge, String memSex){
       name = memName;
       address = memAddress;
       age = memAge;
       sex = memSex;
-   }
+   }//constructor with all parameters
 
-   public HospitalMember(String memName, int memAge)
-   {
+   protected void setName(String memName){
       name = memName;
-      age = memAge;
-      address = null;
-      sex = "";
-   }
+   }//setName
 
-   public HospitalMember(String memName, int memAge, String memSex)
-   {
-      name = memName;
-      age = memAge;
-      sex = memSex;
-      address = " ";
-   }
-
-   protected void setName(String memName)
-   {
-
-      name = memName;
-   }
-
-   protected String getName()
-   {
+   protected String getName(){
       return name;
-   }
+   }//getName
 
-   protected void setAddress(String memAddress)
-   {
+   protected void setAddress(String memAddress){
       address = memAddress;
-   }
+   }//setAddress
 
-   protected String getAddress()
-   {
+   protected String getAddress(){
       return address;
-   }
+   }//getAddress
 
-   protected void setAge(int memAge)
-   {
+   protected void setAge(int memAge){
       age = memAge;
-   }
+   }//setAge
 
-   protected int getAge()
-   {
+   protected int getAge(){
       return age;
-   }
+   }//getAge
 
-   protected void setSex(String memSex)
-   {
-      //removed memSex.toUpperCase(); & just included in the statement below:
+   protected void setSex(String memSex){
       sex = memSex;
-   }
+   }//setSex
 
-   protected String getSex()
-   {
+   protected String getSex(){
       return sex;
-   }
+   }//getSex
 
-   protected abstract String getStatus();
+   protected abstract String getStatus(); //getStatus
 
-
-   public String toString()
-   {
+   public String toString(){
       return ("Name: " + name + "\nAddress: " + address + "\nAge: " + age + " years old" + "\nGender: " + sex);
-   }
-
-   //Removed the publix static void main(String[] args)/ It does not need to be here!
+   }//toString returns the information that is generic to all classes
 
 }//class

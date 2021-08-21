@@ -1,48 +1,61 @@
-package Revision9;
-
-
-import Revision8.Doctors;
+package Revision10;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
 /**
  * Created by UGIAGBE JOSEPH on 12/09/2020
- * UPDATE PROGRAM COMMENTS ABOUT PROGRAM HERE
+ * PROGRAM EXTENDS FROM DOCTORS
  **/
-public class DoctorsArray extends Revision8.Doctors
+public class DoctorsArray extends Doctors
 {
-   Scanner keyboard = new Scanner(System.in);
-   DecimalFormat df = new DecimalFormat("0,000.00");
-
+   //defined instant variables
    private String nameOfAssociation;
    private int numberOfMembers;
-   Revision8.Doctors[] associationMember;
-   double [] contribution;
+   Doctors [] associationMember;
+   double [] investment;
+   double[] profit;
 
-   DoctorsArray(String associationName, int noOfMembers){
+   protected DoctorsArray(String associationName, int noOfMembers){
       String name, id, specialty;
+      String address, gender;
       int age, hierarchy, year;
-      double amount, profit = 0;
+      double amount;
       nameOfAssociation = associationName;
       numberOfMembers = noOfMembers;
-      associationMember = new Revision8.Doctors[numberOfMembers];
-      contribution = new double[numberOfMembers];
+      associationMember = new Doctors[numberOfMembers];
+      investment = new double[numberOfMembers];
+      profit = new double[numberOfMembers];
 
       System.out.println();
-      System.out.println(nameOfAssociation);
+      //output heading
+      System.out.println("\n" + nameOfAssociation);
       for (int index = 0; index < nameOfAssociation.length(); index++){
          System.out.print("*");
-      }
-      System.out.println();
+      }//for
+
+      //informing user on hierarchy code
+      System.out.println("\n");
+      System.out.println("Hierarchy Level:\tHierarchy Code:");
+      System.out.println("Level 1\t\t\t\t101");
+      System.out.println("Level 2\t\t\t\t102");
+      System.out.println("Level 3\t\t\t\t103");
+      System.out.println("Level 4\t\t\t\t104");
+      System.out.println("Level 5\t\t\t\t105");
+
+      //read members details from keyboard
       for (int index = 0; index < numberOfMembers; index++){
          System.out.print("\nEnter member " + (index+1) + " name: ");
          name = keyboard.nextLine();
+         System.out.print("Enter member " + (index+1) + " address: ");
+         address = keyboard.nextLine();
          System.out.print("Enter member " + (index+1) + " age: ");
          age = keyboard.nextInt();
+         System.out.print("Enter member " + (index+1) + " gender: ");
+         gender = keyboard.next();
+         keyboard.nextLine();
          System.out.print("Enter member " + (index+1) + " employment ID: ");
          id = keyboard.nextLine();
-         keyboard.nextLine();
          System.out.print("Enter member " + (index+1) + " specialty: ");
          specialty = keyboard.nextLine();
          System.out.print("Enter member " + (index+1) + " hierarchy: ");
@@ -51,22 +64,29 @@ public class DoctorsArray extends Revision8.Doctors
          year = keyboard.nextInt();
          keyboard.nextLine();
 
-         associationMember[index] = new Doctors(name, age, id, specialty, hierarchy, year);
-      }
+         associationMember[index] = new Doctors(name, address, age, gender, id, specialty, hierarchy, year);
+      }//for
+
+      System.out.println();
+
+      //read investment amount from keyboard
       for (int index = 0; index < numberOfMembers; index++){
          final double PROFITPERCENTAGE = 0.30;
-         System.out.print("\nEnter member " + (index+1) + " contribution amount £: ");
+         System.out.print("Enter member " + (index+1) + " investment amount Â£: ");
          amount = keyboard.nextDouble();
 
-         contribution[index] = amount;
-         profit = amount + (amount * PROFITPERCENTAGE);
-         contribution[index] = profit;
-      }
+         investment[index] = amount;
+         profit[index] = investment[index] * PROFITPERCENTAGE;
+      }//for
+
       System.out.println();
       System.out.println(associationName.toUpperCase() + "\n");
+
+      //print out details
       for (int index = 0; index < numberOfMembers; index++){
-         System.out.println( associationMember[index] + "\n" + "This member got a profit of £" + df.format(contribution[index]));
-      }
-   }
+         System.out.println( associationMember[index] + "\n"
+               + "This member invested Â£" + df.format(investment[index]) + " and got a profit of Â£" + df.format(profit[index]));
+      }//for
+   }//constructor
 
 }//class
