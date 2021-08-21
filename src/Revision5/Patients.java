@@ -1,4 +1,4 @@
-package Revision1;
+package Revision5G;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
@@ -21,165 +21,100 @@ public class Patients extends HospitalMember
    private int appointmentMonth;
    private int appointmentYear;
 
-   public Patients()
-
-   {
+   public Patients(){
       noOfPatients++;
    }
-
-   public Patients(String memName, String memAddress, int memAge, String memGender, String memID, int memTreat, int enterAppointmentDay, int enterAppointmentMonth, int enterAppointmentYear)
-   {
-
-      super(memName, memAddress, memAge, memGender);
-      patientID = memID;
-      noOfTreatment = memTreat;
+   public Patients(String patientName, String patientAddress, int patientAge, String patientGender, String patientId, int patientNoOfTreatment, int enterAppointmentDay, int enterAppointmentMonth, int enterAppointmentYear){
+      super(patientName, patientAddress, patientAge, patientGender);
+      patientID = patientId;
+      noOfTreatment = patientNoOfTreatment;
       appointmentDay = enterAppointmentDay;
       appointmentMonth = enterAppointmentMonth;
       appointmentYear = enterAppointmentYear;
       noOfPatients++;
    }
-
-   public Patients(String memName, int memAge, String memID, int memTreat)
-   {
-      super(memName, memAge);
-      patientID = memID;
-      noOfTreatment = memTreat;
+   public Patients(String patientName, int patientAge, String patientId, int patientNoOfTreatment){
+      super(patientName, patientAge);
+      patientID = patientId;
+      noOfTreatment = patientNoOfTreatment;
       appointmentDay = 0;
       appointmentMonth = 0;
       appointmentYear = 0;
       noOfPatients++;
    }
-
-   public Patients(String memName, int memAge, String memGender, String memID, int enterAppointDay, int enterAppointmentMonth, int enterAppointmentYear)
-
-   {
-      super(memName, memAge, memGender);
-      patientID = memID;
+   public Patients(String patientName, int patientAge, String patientGender, String patientId, int enterAppointDay, int enterAppointmentMonth, int enterAppointmentYear){
+      super(patientName, patientAge, patientGender);
+      patientID = patientId;
       noOfTreatment = 0;
       appointmentDay = enterAppointDay;
       appointmentMonth = enterAppointmentMonth;
       appointmentYear = enterAppointmentYear;
       noOfPatients++;
    }
-
-   public Patients(String walter_preach, int memAge, String male, String t20)
-   {
-      noOfPatients++;
+   protected void setPatientID(String patientId){
+      patientID = patientId;
    }
-
-   public Patients(String susan_batt, String s, int i, String female, String p32, int i1)
-   {
-      noOfPatients++;
-   }
-
-   protected void setPatientID(String memID)
-   {
-      patientID = memID;
-   }
-
-   protected String getPatientID()
-   {
+   protected String getPatientID(){
       return patientID;
    }
-
-   public void setNoOfTreatment(int memTreat)
-   {
-      noOfTreatment = memTreat;
+   protected void setNoOfTreatment(int patientNoOfTreatment){
+      noOfTreatment = patientNoOfTreatment;
    }
-
-   public int getNoOfTreatment()
-   {
+   protected int getNoOfTreatment(){
       return noOfTreatment;
    }
-
-   protected void setAppointmentDay(int enterAppointmentDay)
-   {
+   protected void setAppointmentDay(int enterAppointmentDay){
       appointmentDay = enterAppointmentDay;
    }
-
-   protected int getAppointmentDay()
-   {
+   protected int getAppointmentDay(){
       return appointmentDay;
    }
-
-   protected void setAppointmentMonth(int enterAppointmentMonth)
-   {
+   protected void setAppointmentMonth(int enterAppointmentMonth){
       appointmentMonth = enterAppointmentMonth;
    }
-
-   protected int getAppointmentMonth()
-   {
+   protected int getAppointmentMonth(){
       return appointmentMonth;
    }
-
-   protected void setAppointmentYear(int enterAppointmentYear)
-   {
+   protected void setAppointmentYear(int enterAppointmentYear){
       appointmentYear = enterAppointmentYear;
    }
-
-   protected int getAppointmentYear()
-   {
+   protected int getAppointmentYear(){
       return appointmentYear;
    }
-
-   private double calTreatmentCost()
-   {
+   private double calTreatmentCost(){
       final double TREATMENTRATE = 375.80;
-      //made this a final double
-
       return noOfTreatment * TREATMENTRATE;
    }
-
-   public String getStatus()
-   {
+   protected String getStatus(){
       return ("This member is a patient");
    }
-
-   public String toString()
-   {
+   public String toString(){
       return ("\nPatient ID: " + patientID + "\n" + super.toString() + "\nNumber of treatment received: " + noOfTreatment
-            + "\nAppointment date: " + df1.format(appointmentDay) + "-" + df1.format(appointmentMonth) + "-" + appointmentYear +
-            "\nTreatment cost: £" + df.format(calTreatmentCost()));
+                  + "\nAppointment date: " + df1.format(appointmentDay) + "-" + df1.format(appointmentMonth) + "-" + appointmentYear +
+            "\nTreatment cost: Â£" + df.format(calTreatmentCost()));
    }
-
-   public static int numberOfPatients()
-   {
+   protected static int numberOfPatients(){
       return noOfPatients;
    }
-
-   protected void nextAppointmentDate()
-
-   {
+   protected void nextAppointmentDate(){
       int nextAppointmentDay, nextAppointmentMonth, nextAppointmentYear;
       int initialAppDay, initialAppMonth, initialAppYear;
       int monthInYear = 12, dayInMonth, appointmentDuration = 14;
-
-
       if (appointmentMonth == 1 || appointmentMonth == 3 || appointmentMonth == 5 || appointmentMonth == 7 || appointmentMonth == 8 || appointmentMonth == 10 || appointmentMonth == 12){
          dayInMonth = 31;
       }
-
-      else if (appointmentMonth == 4 || appointmentMonth == 6 || appointmentMonth == 9 || appointmentMonth == 11)
-      {
-         dayInMonth = 30;
-      }
-
-      else if (appointmentMonth == 2)
-      {
-         dayInMonth = 28;
-      }
-
-      else
-      {
-         dayInMonth = 0;
-      }
-
-      if ((appointmentYear % 400 == 0 || appointmentYear % 100 == 0 || appointmentYear % 4 == 0) && (appointmentMonth == 2))
-
-      {
+      else if (appointmentMonth == 4 || appointmentMonth == 6 || appointmentMonth == 9 || appointmentMonth == 11){
+               dayInMonth = 30;
+            }
+            else if (appointmentMonth == 2){
+                     dayInMonth = 28;
+                  }
+                  else {
+                     dayInMonth = 0;
+                  }
+      if ((appointmentYear % 400 == 0 || appointmentYear % 100 == 0 || appointmentYear % 4 == 0) && (appointmentMonth == 2)) {
          dayInMonth = 29;
       }
-
       initialAppDay = appointmentDay + appointmentDuration;
       initialAppMonth = initialAppDay / dayInMonth;
       nextAppointmentDay = initialAppDay % dayInMonth;
@@ -187,27 +122,22 @@ public class Patients extends HospitalMember
       nextAppointmentMonth = (initialAppMonth + appointmentMonth) % monthInYear;
       nextAppointmentYear = initialAppYear + appointmentYear;
       System.out.println("\nThe Patient " + patientID + " next appointment date is " + df1.format(nextAppointmentDay) + "-" + df1.format(nextAppointmentMonth) + "-" + nextAppointmentYear );
-
    }
-   protected void getDiscount(int number)
-
-   {
+   protected void getDiscount(int number){
       final double DISCOUNTRATE = 75.16;
       double discount, calDiscount;
-      if (number == 99)
-
-      {
+      if (number == 99){
          discount = noOfTreatment * DISCOUNTRATE;
          calDiscount = calTreatmentCost() - discount;
-         System.out.println("\nYou guessed right! \nYour current treatment cost is £" + df.format(calDiscount));
+         System.out.println("\nYou guessed right! \nYour current treatment cost is Â£" + df.format(calDiscount));
       }
-
-      else
-      {
+      else {
          System.out.println("\nYour guess was wrong! try again next time");
       }
    }
 
-   //Removed the public Static void main(String[] args) = does not need to be here
+   public static void main(String[] args)
+   {
 
+   }//main
 }//class
