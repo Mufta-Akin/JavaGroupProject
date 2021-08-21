@@ -1,9 +1,13 @@
-package Revision10;
+package FinalRevision;
 
-/**
- * Created by UGIAGBE JOSEPH on 11/25/2020
- * PROGRAM TO MANAGE HOSPITAL MEMBERS
- **/
+/*******
+ *   COM809:FinalRevision
+ *   File: HospitalMember
+ *   Created by: Muyiwa Akin-Fatoki
+ *   Created on: 19/12/2020
+ *   Updated on: 19/12/2020
+ *   Project Description: //TODO
+ *******/
 abstract public class HospitalMember
 {  //defined super class instant variables
    private String name;
@@ -11,51 +15,72 @@ abstract public class HospitalMember
    private int age;
    private String sex;
 
-   protected HospitalMember(){
+   protected HospitalMember()
+   {
+
    }//default constructor
 
-   protected HospitalMember(String memName, String memAddress, int memAge, String memSex){
+   protected HospitalMember(String memName, String memAddress, int memAge, String memSex)
+   {
       name = memName;
       address = memAddress;
       age = memAge;
       sex = memSex;
+
    }//constructor with all parameters
 
-   protected void setName(String memName){
+   protected void setName(String memName)
+   {
       name = memName;
+
    }//setName
 
-   protected String getName(){
+   protected String getName()
+   {
       return name;
    }//getName
 
-   protected void setAddress(String memAddress){
+   protected void setAddress(String memAddress)
+   {
       address = memAddress;
+
    }//setAddress
 
-   protected String getAddress(){
+   protected String getAddress()
+   {
       return address;
+
    }//getAddress
 
-   protected void setAge(int memAge){
+   protected void setAge(int memAge)
+   {
       age = memAge;
+
    }//setAge
 
-   protected int getAge(){
+   protected int getAge()
+   {
       return age;
+
    }//getAge
 
-   protected void setSex(String memSex){
+   protected void setSex(String memSex)
+   {
       sex = memSex;
+
    }//setSex
 
-   protected String getSex(){
+   protected String getSex()
+   {
       return sex;
+
    }//getSex
 
    protected abstract String getStatus(); //getStatus
 
-   public String toString(){
+
+   public String toString()
+   {
       return ("Name: " + name + "\nAddress: " + address + "\nAge: " + age + " years old" + "\nGender: " + sex);
    }//toString returns the information that is generic to all classes
 

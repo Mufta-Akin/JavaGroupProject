@@ -1,12 +1,14 @@
-package Revision10;
-
+package FinalRevision;
 import java.text.DecimalFormat;
 import java.util.Scanner;
-
-/**
- * Created by UGIAGBE JOSEPH on 11/25/2020
- * PROGRAM EXTENDS FROM HOSPITAL MEMBERS
- **/
+/*******
+ *   COM809:FinalRevision
+ *   File: Doctors
+ *   Created by: Muyiwa Akin-Fatoki
+ *   Created on: 19/12/2020
+ *   Updated on: 19/12/2020
+ *   Project Description: //TODO
+ *******/
 public class Doctors extends HospitalMember
 {
    Scanner keyboard = new Scanner(System.in);
@@ -239,7 +241,7 @@ public class Doctors extends HospitalMember
    {
       return ("\nEmployment ID: " +employmentID + "\n" + super.toString() + "\nSpecialty: " + specialty + "\nHierarchy code: "
             + hierarchyCode + "\nNumber of courses completed: " + noOfCourse + "\nYear of employment: " + yearOfAppointment
-            + "\nMonthly salary: Â£" + df.format(calSalary()));
+            + "\nMonthly salary: £" + df.format(calSalary()));
 
    }//getStatus
 
@@ -257,7 +259,7 @@ public class Doctors extends HospitalMember
       if (found)
       {
          carMaintenance = calSalary() * MAINTENANCEBONUS;
-         System.out.println("\nThe Doctor " + employmentID + " car maintenance allowance is Â£" + df.format(carMaintenance));
+         System.out.println("\nThe Doctor " + employmentID + " car maintenance allowance is £" + df.format(carMaintenance));
 
       }//if
 

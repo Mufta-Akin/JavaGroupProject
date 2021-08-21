@@ -1,9 +1,13 @@
-package Revision10;
+package FinalRevision;
 
-/**
- * Created by Alannah Cardwell, Paul McGinley, Akin-Fatoki Muyiwa, Joseph Ugiagbe on 11/26/2020
- * PROGRAM TO TEST HOSPITAL MEMBERS
- **/
+/*******
+ *   COM809:FinalRevision
+ *   File: TestHospitalMember
+ *   Created by: Muyiwa Akin-Fatoki
+ *   Created on: 19/12/2020
+ *   Updated on: 19/12/2020
+ *   Project Description: //TODO
+ *******/
 public class TestHospitalMember extends HospitalMemberInfo
 {
 
@@ -12,6 +16,14 @@ public class TestHospitalMember extends HospitalMemberInfo
       //calling getHospitalMember from HospitalMemberInfo class
       getHospitalMemberInfo();
 
+      System.out.println();
+      System.out.println();
+
+
+      System.out.println("Testing class: ");
+
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       //create aDoctor
       Doctors aDoctor = new Doctors();
 
@@ -85,8 +97,8 @@ public class TestHospitalMember extends HospitalMemberInfo
 
       ////calling setEmploymentID and getEmployment ID method for bDoctor
       bDoctor.setEmploymentID("TS73");
-      bDoctor.getEmploymentID();
-
+      System.out.println(bDoctor.getEmploymentID());
+      //
       //calling haveOfficialCar method for bDoctor and cDoctor
       bDoctor.haveOfficialCar(false);
       cDoctor.haveOfficialCar(true);

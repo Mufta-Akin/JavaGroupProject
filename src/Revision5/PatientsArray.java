@@ -1,16 +1,19 @@
-package Revision10;
+package FinalRevision;
 
-/**
- * Created by UGIAGBE JOSEPH on 12/09/2020
- * PROGRAM EXTENDS FROM PATIENTS
- **/
+/*******
+ *   COM809:FinalRevision
+ *   File: PatientsArray
+ *   Created by: Muyiwa Akin-Fatoki
+ *   Created on: 19/12/2020
+ *   Updated on: 19/12/2020
+ *   Project Description: //TODO
+ *******/
 public class PatientsArray extends Patients
 {
-   private String groupOfPatientsAwaitingResult;
-   private int noOfPatientsAwaitingResult;
    Patients[] awaitingResult;
 
-   protected PatientsArray(String patientGroup, int numberOfPatients){
+   protected PatientsArray(String patientGroup, int numberOfPatients)
+   {
       String name, sex, id;
       String address;
       int age, noOfTreat, appDay, appMonth, appYear;
@@ -60,7 +63,7 @@ public class PatientsArray extends Patients
          awaitingResult[index] = new Patients(name, address, age, sex, id, noOfTreat, appDay, appMonth, appYear);
       }
 
-      System.out.println("");
+      System.out.println();
       System.out.println("Details of patients awaiting scan and xray result\n*************************");
 
       for (int index = 0; index < numberOfPatients; index++)
