@@ -1,4 +1,4 @@
-package Revision8;
+package Revision9;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
@@ -24,10 +24,15 @@ public class Nurses extends HospitalMember
    private int hierarchyCode;
    private int noOfCourse;
 
-   public Nurses(){
+   public Nurses()
+
+   {
       noOfNurses++;
    }
-   public Nurses(String nurseName, String nurseAddress, int nurseAge, String nurseGender, String nurseID, String nurseSpecialty, int nurseHierarchy, int nurseNoOfCourse){
+
+   public Nurses(String nurseName, String nurseAddress, int nurseAge, String nurseGender, String nurseID, String nurseSpecialty, int nurseHierarchy, int nurseNoOfCourse)
+
+   {
       super(nurseName, nurseAddress, nurseAge, nurseGender);
       employmentID = nurseID;
       specialty = nurseSpecialty;
@@ -35,7 +40,10 @@ public class Nurses extends HospitalMember
       noOfCourse = nurseNoOfCourse;
       noOfNurses++;
    }
-   public Nurses(String nurseName, int nurseAge, String nurseGender, String nurseID, int nurseHierarchy){
+
+   public Nurses(String nurseName, int nurseAge, String nurseGender, String nurseID, int nurseHierarchy)
+
+   {
       super(nurseName, nurseAge, nurseGender);
       employmentID = nurseID;
       hierarchyCode = nurseHierarchy;
@@ -43,7 +51,9 @@ public class Nurses extends HospitalMember
       noOfCourse = 0;
       noOfNurses++;
    }
-   public Nurses(String nurseName, int nurseAge, String nurseID, String nurseSpecialty){
+
+   public Nurses(String nurseName, int nurseAge, String nurseID, String nurseSpecialty)
+   {
       super(nurseName, nurseAge);
       employmentID = nurseID;
       specialty = nurseSpecialty;
@@ -51,240 +61,240 @@ public class Nurses extends HospitalMember
       noOfCourse = 0;
       noOfNurses++;
    }
-   protected void setEmploymentID(String nurseID){
+
+   protected void setEmploymentID(String nurseID)
+   {
       employmentID = nurseID;
    }
-   protected String getEmploymentID(){
+
+   protected String getEmploymentID()
+   {
       return employmentID;
    }
-   protected void setSpecialty(String nurseSpecialty){
+
+   protected void setSpecialty(String nurseSpecialty)
+   {
       specialty = nurseSpecialty;
    }
-   protected String getSpecialty(){
+   protected String getSpecialty()
+   {
       return specialty;
    }
-   protected void setHierarchy(int nurseHierarchy){
+
+   protected void setHierarchy(int nurseHierarchy)
+   {
       hierarchyCode = nurseHierarchy;
    }
-   protected int getHierarchy(){
+
+   protected int getHierarchy()
+   {
       return hierarchyCode;
    }
-   protected void setNoOfCourse(int nurseNoOfCourse){
+
+   protected void setNoOfCourse(int nurseNoOfCourse)
+   {
       noOfCourse = nurseNoOfCourse;
    }
-   protected int getNumberOfDays(){
-      //tried to fix static DaysInMonth from previous code of team member
-      int numberOfDaysInMonth = 0;
-      String MonthOfName = "Unknown";
 
-      System.out.print("Input a month number: ");
-      int month = keyboard.nextInt();
+   private double calAnnualSalary()
 
-      System.out.print("Input a year: ");
-      int year = keyboard.nextInt();
-
-      switch (month) {
-         case 1:
-            MonthOfName = "January";
-            numberOfDaysInMonth = 31;
-            break;
-         case 2:
-            MonthOfName = "February";
-            if ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))) {
-               numberOfDaysInMonth = 29;
-            } else {
-               numberOfDaysInMonth = 28;
-            }
-            break;
-         case 3:
-            MonthOfName = "March";
-            numberOfDaysInMonth = 31;
-            break;
-         case 4:
-            MonthOfName = "April";
-            numberOfDaysInMonth = 30;
-            break;
-         case 5:
-            MonthOfName = "May";
-            numberOfDaysInMonth = 31;
-            break;
-         case 6:
-            MonthOfName = "June";
-            numberOfDaysInMonth = 30;
-            break;
-         case 7:
-            MonthOfName = "July";
-            numberOfDaysInMonth = 31;
-            break;
-         case 8:
-            MonthOfName = "August";
-            numberOfDaysInMonth = 31;
-            break;
-         case 9:
-            MonthOfName = "September";
-            numberOfDaysInMonth = 30;
-            break;
-         case 10:
-            MonthOfName = "October";
-            numberOfDaysInMonth = 31;
-            break;
-         case 11:
-            MonthOfName = "November";
-            numberOfDaysInMonth = 30;
-            break;
-         case 12:
-            MonthOfName = "December";
-            numberOfDaysInMonth = 31;
-      }
-
-      return numberOfDaysInMonth;
-   }
-
-   private double calAnnualSalary(){
-      double annualSalary;
+   {
       final int ZERO = 0;
       final int ONE = 1;
       final int TWO = 2;
       final int THREE = 3;
       final int FOUR = 4;
       final int FIVE = 5;
-      final double RATE1 = 175.50;
-      final double RATE2 = 225.50;
-      final double RATE3 = 278.20;
-      final double RATE4 = 325.80;
-      final double RATE5 = 379.20;
-      final double RATE6 = 1.30;
-      final double RATE7 = 1.80;
-      final double RATE8 = 2.30;
-      final double RATE9 = 2.80;
-      final double RATE10 = 3.30;
-      final int MONTHINYEAR = 12;
+      final int FIXEDSALARYDAY = 30;
 
 
       double salaryRate, courseRate;
       int monthsInYear = 12;
-      if (hierarchyCode == TWOHUNDREDONE){
-         salaryRate = RATE1;
-      }
-      else if (hierarchyCode == TWOHUNDREDTWO){
-               salaryRate = RATE2;
-            }
-            else if (hierarchyCode == TWOHUNDREDTHREE){
-                     salaryRate = RATE3;
-                  }
-                  else if (hierarchyCode == TWOHUNDREDFOUR){
-                           salaryRate = RATE4;
-                        }
-                        else if (hierarchyCode == TWOHUNDREDFIVE){
-                                 salaryRate = RATE5;
-                              }
-                              else {
-                                    salaryRate = ZERO;
-                              }
-      if (noOfCourse == ZERO){
-         courseRate = ONE;
-      }
-      else if (noOfCourse == ONE){
-               courseRate = RATE6;
-            }
-            else if (noOfCourse == TWO){
-                     courseRate = RATE7;
-                  }
-                  else if (noOfCourse == THREE){
-                           courseRate = RATE8;
-                        }
-                        else if (noOfCourse == FOUR){
-                                 courseRate = RATE9;
-                              }
-                              else if (noOfCourse == FIVE){
-                                       courseRate = RATE10;
-                                    }
-                                    else {
-                                          courseRate = ZERO;
-                                          }
-      annualSalary =(salaryRate * courseRate * getNumberOfDays()) * MONTHINYEAR;
-      return  annualSalary;
 
-   }
-   protected void calAnnualLeave(){
-      int annualLeave, leaveInMonth;
-      //final int MONTHINYEAR = 12;
-      final int SEVEN =7;
-      final int EIGHT = 8;
-      final  int NINE = 9;
-      final  int TEN = 10;
-      final int THIRTEEN = 13;
-      if (hierarchyCode == TWOHUNDREDONE){
-         leaveInMonth = SEVEN;
+      if (hierarchyCode == TWOHUNDREDONE)
+      {
+         salaryRate = 175.50;
       }
-      else if (hierarchyCode == TWOHUNDREDTWO){
-               leaveInMonth = EIGHT;
-            }
-      else if (hierarchyCode == TWOHUNDREDTHREE){
-               leaveInMonth = NINE;
-            }
-            else if (hierarchyCode == TWOHUNDREDFOUR){
-                     leaveInMonth = TEN;
-                  }
-                  else if (hierarchyCode == TWOHUNDREDFIVE){
-                           leaveInMonth = THIRTEEN;
-                        }
-                        else {
-                           leaveInMonth = 0;
-                        }
-      annualLeave = leaveInMonth * getNumberOfDays();
+
+      else if (hierarchyCode == TWOHUNDREDTWO)
+      {
+         salaryRate = 225.50;
+      }
+
+      else if (hierarchyCode == TWOHUNDREDTHREE)
+      {
+         salaryRate = 278.20;
+      }
+
+      else if (hierarchyCode == TWOHUNDREDFOUR)
+      {
+         salaryRate = 325.80;
+      }
+
+      else if (hierarchyCode == TWOHUNDREDFIVE)
+      {
+         salaryRate = 379.20;
+      }
+
+      else
+      {
+         salaryRate = 0;
+      }
+
+      if (noOfCourse == ZERO)
+      {
+         courseRate = 1;
+      }
+
+      else if (noOfCourse == ONE)
+      {
+         courseRate = 1.3;
+      }
+
+      else if (noOfCourse == TWO)
+      {
+         courseRate = 1.8;
+      }
+
+      else if (noOfCourse == THREE)
+      {
+         courseRate = 2.3;
+      }
+
+      else if (noOfCourse == FOUR)
+      {
+         courseRate = 2.8;
+      }
+
+      else if (noOfCourse == FIVE)
+      {
+         courseRate = 3.3;
+      }
+
+      else
+
+      {
+         courseRate = 0;
+      }
+      return  (salaryRate * courseRate * FIXEDSALARYDAY) * monthsInYear;
+   }
+
+   protected void calAnnualLeave()
+   {
+      int annualLeave, leaveInMonth, monthInYear = 12;
+      if (hierarchyCode == TWOHUNDREDONE)
+      {
+         leaveInMonth = 7;
+      }
+
+      else if (hierarchyCode == TWOHUNDREDTWO)
+      {
+         leaveInMonth = 8;
+      }
+
+      else if (hierarchyCode == TWOHUNDREDTHREE)
+      {
+         leaveInMonth = 9;
+      }
+
+      else if (hierarchyCode == TWOHUNDREDFOUR)
+      {
+         leaveInMonth = 10;
+      }
+
+      else if (hierarchyCode == TWOHUNDREDFIVE)
+      {
+         leaveInMonth = 13;
+      }
+      else
+      {
+         leaveInMonth = 0;
+      }
+
+      annualLeave = leaveInMonth * monthInYear;
       System.out.println("\nThe Nurse " + employmentID + " annual leave is " + annualLeave + " days");
    }
-   protected String getStatus(){
+
+
+   protected String getStatus()
+   {
       return ("This member is a Nurse");
    }
-   public String toString(){
+
+   public String toString()
+   {
       return ("\nEmployment ID: " + employmentID + "\n" + super.toString() + "\nSpecialty: " + specialty
             + "\nHierarchy Code: " + hierarchyCode + "\nNumber of courses completed: " + noOfCourse
-               + "\nAnnual salary: Â£" + df.format(calAnnualSalary()));
+            + "\nAnnual salary: £" + df.format(calAnnualSalary()));
    }
-   protected static int numberOfNurses(){
+
+   protected static int numberOfNurses()
+   {
       return noOfNurses;
    }
-   protected void hasOfficialCar(boolean found){
+
+   protected void hasOfficialCar(boolean found)
+   {
+
       final double MAINTENANCEBONUS = 0.05;
+
       double carMaintenance;
-      if (found==true){
+
+      if (found==true)
+      {
          carMaintenance = calAnnualSalary() * MAINTENANCEBONUS;
-         System.out.println("\nThe Doctor " + employmentID + " car maintenance fee is Â£" + df.format(carMaintenance));
+         System.out.println("\nThe Doctor " + employmentID + " car maintenance fee is £" + df.format(carMaintenance));
       }
-      else{
+
+      else
+      {
          System.out.println("\nThe Doctor " + employmentID + " do not have a car");
       }
+
    }
-   protected void updateBenefits(){
+
+   protected void updateBenefits()
+
+   {
       String diamondPackage = "Pension, Healthcare, Company car, 30 days of Annual vacation & Travel allowance";
       String platinumPackage = "Pension, Healthcare, Company car, 25 days of Annual vacation & Travel allowance";
       String goldPackage = "Pension, Healthcare, Company car, 20 days of Annual vacation & Travel allowance";
       String silverPackage = "Pension, Healthcare, 15 days of Annual vacation & Travel allowance";
       String bronzePackage = "Pension, Healthcare, 10 days of Annual vacation & Travel allowance";
-      if (hierarchyCode == TWOHUNDREDFIVE){
-         System.out.println("\nThe Doctor " + employmentID + " is entitles to " + diamondPackage);
+
+      if (hierarchyCode == TWOHUNDREDFIVE)
+      {
+         System.out.println("\nThe nurse " + employmentID + " is entitles to " + diamondPackage);
       }
-      else if (hierarchyCode == TWOHUNDREDFOUR){
-               System.out.println("\nThe Doctor " + employmentID + " is entitle to " + platinumPackage);
-            }
-            else if (hierarchyCode == TWOHUNDREDTHREE){
-                     System.out.println("\nThe Doctor " + employmentID + " is entitled to " + goldPackage);
-                  }
-                  else if (hierarchyCode == TWOHUNDREDTWO){
-                           System.out.println("\nThe Doctor " + employmentID + " is entitled to " + silverPackage);
-                        }
-                        else if (hierarchyCode == TWOHUNDREDONE){
-                                 System.out.println("\nThe Doctor " + employmentID + " is entitled to " + bronzePackage);
-                              }
-                        else {
-                              System.out.println("\nA wrong hierarchy code was entered");
-                        }
+
+      else if (hierarchyCode == TWOHUNDREDFOUR)
+      {
+         System.out.println("\nThe nurse " + employmentID + " is entitle to " + platinumPackage);
+      }
+
+      else if (hierarchyCode == TWOHUNDREDTHREE)
+      {
+         System.out.println("\nThe nurse " + employmentID + " is entitled to " + goldPackage);
+      }
+
+      else if (hierarchyCode == TWOHUNDREDTWO)
+
+      {
+         System.out.println("\nThe nurse " + employmentID + " is entitled to " + silverPackage);
+      }
+
+      else if (hierarchyCode == TWOHUNDREDONE)
+      {
+         System.out.println("\nThe nurse " + employmentID + " is entitled to " + bronzePackage);
+      }
+
+      else
+
+      {
+         System.out.println("\nA wrong hierarchy code was entered");
+      }
    }
 
-   public static void main(String[] args)
-   {
 
-   }//main
 }//class
+

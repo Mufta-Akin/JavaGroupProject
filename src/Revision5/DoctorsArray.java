@@ -1,4 +1,7 @@
-package Revision8;
+package Revision9;
+
+
+import Revision8.Doctors;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
@@ -7,14 +10,14 @@ import java.util.Scanner;
  * Created by UGIAGBE JOSEPH on 12/09/2020
  * UPDATE PROGRAM COMMENTS ABOUT PROGRAM HERE
  **/
-public class DoctorsArray extends Doctors
+public class DoctorsArray extends Revision8.Doctors
 {
    Scanner keyboard = new Scanner(System.in);
    DecimalFormat df = new DecimalFormat("0,000.00");
 
    private String nameOfAssociation;
    private int numberOfMembers;
-   Doctors [] associationMember;
+   Revision8.Doctors[] associationMember;
    double [] contribution;
 
    DoctorsArray(String associationName, int noOfMembers){
@@ -23,7 +26,7 @@ public class DoctorsArray extends Doctors
       double amount, profit = 0;
       nameOfAssociation = associationName;
       numberOfMembers = noOfMembers;
-      associationMember = new Doctors[numberOfMembers];
+      associationMember = new Revision8.Doctors[numberOfMembers];
       contribution = new double[numberOfMembers];
 
       System.out.println();
@@ -52,7 +55,7 @@ public class DoctorsArray extends Doctors
       }
       for (int index = 0; index < numberOfMembers; index++){
          final double PROFITPERCENTAGE = 0.30;
-         System.out.print("\nEnter member " + (index+1) + " contribution amount Â£: ");
+         System.out.print("\nEnter member " + (index+1) + " contribution amount £: ");
          amount = keyboard.nextDouble();
 
          contribution[index] = amount;
@@ -62,7 +65,7 @@ public class DoctorsArray extends Doctors
       System.out.println();
       System.out.println(associationName.toUpperCase() + "\n");
       for (int index = 0; index < numberOfMembers; index++){
-         System.out.println( associationMember[index] + "\n" + "This member got a profit of Â£" + df.format(contribution[index]));
+         System.out.println( associationMember[index] + "\n" + "This member got a profit of £" + df.format(contribution[index]));
       }
    }
 

@@ -1,4 +1,5 @@
-package Revision8;
+package Revision9;
+
 
 /**
  * Created by UGIAGBE JOSEPH on 11/25/2020
@@ -9,61 +10,87 @@ abstract public class HospitalMember
    private String name;
    private String address;
    private int age;
-   private String gender;
+   private String sex;
 
-   public HospitalMember(){
-   }//default constructor
-   public HospitalMember(String memName, String memAddress, int memAge, String memGender){
+   public HospitalMember()
+   {
+      //default constructior
+   }
+
+   public HospitalMember(String memName, String memAddress, int memAge, String memSex)
+   {
       name = memName;
       address = memAddress;
       age = memAge;
-      gender = memGender;
-   }//user defined constructor
-   public HospitalMember(String memName, int memAge){
+      sex = memSex;
+   }
+
+   public HospitalMember(String memName, int memAge)
+   {
       name = memName;
       age = memAge;
-      address = "Unknown";
-      gender = "Unknown";
-   }//user defined constructor
-   public HospitalMember(String memName, int memAge, String memGender){
+      address = null;
+      sex = "";
+   }
+
+   public HospitalMember(String memName, int memAge, String memSex)
+   {
       name = memName;
       age = memAge;
-      gender = memGender;
-      address = "Unknown";
-   }//user defined constructor
-   protected void setName(String memName){
-      name = memName;
+      sex = memSex;
+      address = " ";
    }
-   protected String getName(){
-      return name;
-   }
-   protected void setAddress(String memAddress){
-      address = memAddress;
-   }
-   protected String getAddress(){
-      return address;
-   }
-   protected void setAge(int memAge){
-      age = memAge;
-   }
-   protected int getAge(){
-      return age;
-   }
-   protected void setGender(String memGender){
-      gender = memGender;
-   }
-   protected String getGender(){
-      return gender;
-   }
-   protected abstract String getStatus();
 
-   public String toString(){
-      return ("Name: " + name + "\nAddress: " + address + "\nAge: " + age + " years old" + "\nGender: " + gender);
-   }//returns the information that is generic to all classes
-
-
-   public static void main(String[] args)
+   protected void setName(String memName)
    {
 
-   }//main
+      name = memName;
+   }
+
+   protected String getName()
+   {
+      return name;
+   }
+
+   protected void setAddress(String memAddress)
+   {
+      address = memAddress;
+   }
+
+   protected String getAddress()
+   {
+      return address;
+   }
+
+   protected void setAge(int memAge)
+   {
+      age = memAge;
+   }
+
+   protected int getAge()
+   {
+      return age;
+   }
+
+   protected void setSex(String memSex)
+   {
+      //removed memSex.toUpperCase(); & just included in the statement below:
+      sex = memSex;
+   }
+
+   protected String getSex()
+   {
+      return sex;
+   }
+
+   protected abstract String getStatus();
+
+
+   public String toString()
+   {
+      return ("Name: " + name + "\nAddress: " + address + "\nAge: " + age + " years old" + "\nGender: " + sex);
+   }
+
+   //Removed the publix static void main(String[] args)/ It does not need to be here!
+
 }//class
